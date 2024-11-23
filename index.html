@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Security Toolkit</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins:400,500,600,700' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-shield-alt"></i> Password Security Toolkit</h1>
+        <div class="tool-box">
+            <!-- Password Breach Checker -->
+            <div class="tool">
+                <div class="tool-header">
+                    <i class="fas fa-search-dollar tool-icon"></i>
+                    <h2>Password Breach Checker</h2>
+                </div>
+                <div class="input-wrapper">
+                    <input type="password" id="breachPassword" placeholder="Enter password to check">
+                    <span class="toggle-password" onclick="togglePasswordVisibility('breachPassword')">
+                        <i class="far fa-eye"></i>
+                    </span>
+                </div>
+                <button onclick="checkBreaches()">Check for Breaches</button>
+                <div id="breachResult" class="result-box"></div>
+            </div>
+
+            <!-- Password Generator -->
+            <div class="tool">
+                <div class="tool-header">
+                    <i class="fas fa-key tool-icon"></i>
+                    <h2>Strong Password Generator</h2>
+                </div>
+                <div class="input-wrapper">
+                    <input type="text" id="generatedPassword" readonly>
+                    <span class="toggle-password" onclick="togglePasswordVisibility('generatedPassword')">
+                        <i class="far fa-eye"></i>
+                    </span>
+                </div>
+                <div class="options">
+                    <label>Length: <span id="lengthValue">16</span></label>
+                    <input type="range" id="passwordLength" min="8" max="32" value="16">
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="uppercase" checked> Uppercase</label>
+                        <label><input type="checkbox" id="lowercase" checked> Lowercase</label>
+                        <label><input type="checkbox" id="numbers" checked> Numbers</label>
+                        <label><input type="checkbox" id="symbols" checked> Symbols</label>
+                    </div>
+                </div>
+                <button onclick="generatePassword()">Generate Password</button>
+            </div>
+
+            <!-- Password Strength Checker -->
+            <div class="tool">
+                <div class="tool-header">
+                    <i class="fas fa-lock tool-icon"></i>
+                    <h2>Password Strength Checker</h2>
+                </div>
+                <div class="input-wrapper">
+                    <input type="password" id="passwordToCheck" placeholder="Enter password to analyze">
+                    <span class="toggle-password" onclick="togglePasswordVisibility('passwordToCheck')">
+                        <i class="far fa-eye"></i>
+                    </span>
+                </div>
+                <div class="requirements-list">
+                    <div class="requirement" id="lengthReq">
+                        <i class="fas fa-times-circle"></i> At least 8 characters
+                    </div>
+                    <div class="requirement" id="upperReq">
+                        <i class="fas fa-times-circle"></i> At least 1 uppercase letter
+                    </div>
+                    <div class="requirement" id="lowerReq">
+                        <i class="fas fa-times-circle"></i> At least 1 lowercase letter
+                    </div>
+                    <div class="requirement" id="numberReq">
+                        <i class="fas fa-times-circle"></i> At least 1 number
+                    </div>
+                    <div class="requirement" id="symbolReq">
+                        <i class="fas fa-times-circle"></i> At least 1 special character
+                    </div>
+                </div>
+                <div id="strengthResult" class="result-box"></div>
+                <div class="strength-bar-container">
+                    <div class="strength-bar"></div>
+                </div>
+            </div>
+
+            <!-- Time to Crack Password -->
+            <div class="tool password-crack-time">
+                <div class="tool-header">
+                    <i class="fas fa-stopwatch tool-icon"></i>
+                    <h2>Time to Crack Password</h2>
+                </div>
+                <div class="input-wrapper">
+                    <input type="password" id="crackTimeCheck" placeholder="Enter password">
+                    <span class="toggle-password" onclick="togglePasswordVisibility('crackTimeCheck')">
+                        <i class="far fa-eye"></i>
+                    </span>
+                </div>
+                <div class="password-info">
+                    <div class="char-count">
+                        <span id="crackCharCount">0</span> characters containing:
+                    </div>
+                    <div class="criteria-grid">
+                        <div id="crackHasSymbols">Symbols</div>
+                        <div id="crackHasNumbers">Numbers</div>
+                        <div id="crackHasUpper">Upper case</div>
+                        <div id="crackHasLower">Lower case</div>
+                    </div>
+                </div>
+                <div class="crack-time-result">
+                    <h3>Time to crack your password:</h3>
+                    <div id="timeToBreak" class="time-display">No Password</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

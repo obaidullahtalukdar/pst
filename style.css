@@ -1,0 +1,437 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #4ecca3;
+    margin-bottom: 40px;
+    font-weight: 700;
+    text-shadow: 0 4px 15px rgba(78, 204, 163, 0.3);
+}
+
+.tool-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.tool {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.tool:hover {
+    transform: translateY(-5px);
+}
+
+.tool-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.tool-icon {
+    font-size: 24px;
+    color: #4ecca3;
+    margin-right: 10px;
+}
+
+h2 {
+    color: #4ecca3;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.input-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+    border: 2px solid rgba(78, 204, 163, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: #4ecca3;
+    box-shadow: 0 0 10px rgba(78, 204, 163, 0.2);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #4ecca3;
+}
+
+.options {
+    margin-bottom: 20px;
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin: 10px 0;
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgba(78, 204, 163, 0.3);
+    height: 5px;
+    border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #4ecca3;
+    cursor: pointer;
+    border: 2px solid #ffffff;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #4ecca3;
+    color: #1a1a2e;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #45b393;
+    transform: translateY(-2px);
+}
+
+.result-box {
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    transition: all 0.3s ease;
+}
+
+.strength-details {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: #ccc;
+}
+
+.strength-bar-container {
+    width: 100%;
+    height: 5px;
+    background: rgba(0, 0, 0, 0.1);
+    margin: 15px 0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.strength-bar {
+    height: 100%;
+    width: 0;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+.strength-bar.very-weak { 
+    width: 20%; 
+    background: #ff4444;
+}
+.strength-bar.weak { 
+    width: 40%; 
+    background: #ff8800;
+}
+.strength-bar.moderate { 
+    width: 60%; 
+    background: #ffbb33;
+}
+.strength-bar.strong { 
+    width: 80%; 
+    background: #00C851;
+}
+.strength-bar.very-strong { 
+    width: 100%; 
+    background: #007E33;
+}
+
+.crack-time-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.crack-time {
+    font-size: 1.3em;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 10px 0;
+    background: rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.crack-time.very-weak { 
+    background: rgba(255, 68, 68, 0.1);
+    color: #ff4444;
+}
+
+.crack-time.weak { 
+    background: rgba(255, 136, 0, 0.1);
+    color: #ff8800;
+}
+
+.crack-time.moderate { 
+    background: rgba(255, 187, 51, 0.1);
+    color: #ffbb33;
+}
+
+.crack-time.strong { 
+    background: rgba(0, 200, 81, 0.1);
+    color: #00C851;
+}
+
+.crack-time.very-strong { 
+    background: rgba(0, 126, 51, 0.1);
+    color: #007E33;
+}
+
+.crack-time-container h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .tool {
+        padding: 20px;
+    }
+    
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Password Requirements Styling */
+.password-requirements {
+    margin: 15px 0;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+}
+
+.requirement {
+    margin: 8px 0;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.requirement i {
+    font-size: 0.8em;
+    margin-right: 8px;
+}
+
+.requirement.met {
+    color: #2ecc71;
+}
+
+.requirement.met i {
+    color: #2ecc71;
+}
+
+/* Password Suggestions Styling */
+.password-suggestions {
+    margin: 15px 0;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+}
+
+.password-suggestions h4 {
+    color: #2c3e50;
+    margin: 0 0 10px 0;
+}
+
+.password-suggestions ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.password-suggestions li {
+    color: #666;
+    margin: 5px 0;
+}
+
+.suggestion-highlight {
+    color: #3498db;
+    font-weight: bold;
+}
+
+.requirements-list {
+    margin: 10px 0;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+}
+
+.requirement {
+    margin: 8px 0;
+    color: #ff4444;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+
+.requirement i {
+    margin-right: 8px;
+}
+
+.requirement.valid {
+    color: #2ecc71;
+}
+
+.requirement.valid i:before {
+    content: "\f00c"; /* FontAwesome check icon */
+}
+
+/* New styles for 4th tool */
+.password-crack-time {
+    text-align: center;
+}
+
+.password-info {
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+}
+
+.char-count {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.criteria-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.criteria-grid div {
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.criteria-grid div.active {
+    opacity: 1;
+    background: rgba(78, 204, 163, 0.2);
+    color: #4ecca3;
+}
+
+.crack-time-result {
+    margin-top: 20px;
+}
+
+.time-display {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 15px 0;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.button-group {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.copy-password {
+    cursor: pointer;
+    color: #4ecca3;
+    transition: all 0.3s ease;
+}
+
+.copy-password:hover {
+    color: #2ecc71;
+}
+
+/* Make the password input clickable */
+#generatedPassword {
+    cursor: pointer;
+}
+
+/* Copy success animation */
+.copy-success {
+    animation: copyFeedback 0.5s ease;
+}
+
+@keyframes copyFeedback {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
